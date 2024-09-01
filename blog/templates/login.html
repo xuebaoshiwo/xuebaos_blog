@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Xuebao's Blog</title>
+    <link rel="stylesheet" href="../static/register.css">
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+
+<body>
+    <span class="form-area" id="form-area1">
+        <form id="send_email" method="post">
+            <span>
+                <label for="email">email</label>
+                <input type="email" id="email" name="email" autocomplete='off'>
+            </span>
+            <br>
+            <br>
+            <span style="position: relative;">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password">
+
+            </span>
+            <div class="icon-container" style="display: none;" id="error_icon_V">
+                <div class="signal-icon error"></div>
+                <div class="text_container error">Your email has not been registerd! Please register first</div>
+            </div>
+            <div class="icon-container" style="display: none;" id="error_icon_V_Empty">
+                <div class="signal-icon error"></div>
+                <div class="text_container error">Your email or password is empty!</div>
+            </div>
+            <div class="icon-container" style="display: none;" id="error_icon_V_WrongPassword">
+                <div class="signal-icon error"></div>
+                <div class="text_container error">Wrong password!</div>
+            </div>
+
+
+            <br>
+            <br>
+            <button class="send login" id="send login" type="button"></button>
+            <a class="enter-register" href="./register.html" id="enter-register"></a>
+        </form>
+    </span>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>

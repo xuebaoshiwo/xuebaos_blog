@@ -1,0 +1,31 @@
+.send.login{
+    background-image: url('./icons8-登录-50.png');
+}
+
+.send.login:hover{
+    background: none;
+}
+
+.send.login:hover::after{
+    content: 'Login';
+}
+
+
+.enter-register{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-image: url('./icons8-注册-50.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-right: 50px;
+    cursor: pointer;
+    transition: scale 0.5s ease;
+}
+
+.enter-register:hover{
+    scale: 1.3;
+}
