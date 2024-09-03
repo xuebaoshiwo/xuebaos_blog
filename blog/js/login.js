@@ -57,7 +57,12 @@ loginButton.addEventListener('click', async () => {
                 }
             }
             else {
-                alert("log in successfully!")
+                // 获取username和userid
+                let username = data.username;
+                let userid = data.userid;
+                window.location.href = `blog.html?username=${username}&userid=${userid}`
+                
+                // alert("log in successfully!")
             }
         })
         .catch(error => {

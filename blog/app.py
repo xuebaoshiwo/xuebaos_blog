@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import random
 import config
 from blueprints.auth import bp as auth_bp
-from xuebaos_blog.blog.blueprints.blog import bp as qa_bp
+from blueprints.blog import bp as blog_bp
 from exts import db, mail
 from flask_migrate import Migrate
 from models import User
@@ -19,7 +19,7 @@ app.config.from_object(config)
 
 # 登记蓝图
 app.register_blueprint(auth_bp)
-app.register_blueprint(qa_bp)
+app.register_blueprint(blog_bp)
 
 # 登记SQLAlchemy
 db.init_app(app)

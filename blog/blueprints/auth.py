@@ -124,8 +124,15 @@ def login():
     else:
         user = users.first()
         correct_password = user.password
+        # 获取该用户的id
+        user_id = user.id
+        # 获取用户名
+        user_name = user.user_name
+
         if password == correct_password:
             state = True
+            result['username'] = user_name
+            result['userid'] = user_id
             error = ''
         else:
             state = False

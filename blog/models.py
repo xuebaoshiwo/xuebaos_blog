@@ -21,7 +21,7 @@ class Blog(db.Model):
     # 发送者的id, 为到User的id的外键
     deliverer_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     # 在USer中可以使用blog来访问其绑定的blog
-    deliverer = db.relationship(User, backhref='blog')
+    deliverer = db.relationship(User, backref='blog')
     # blog标题
     title = db.Column(db.String(100), nullable=False)
     # 正文内容
@@ -31,7 +31,7 @@ class Blog(db.Model):
     language_tag = db.Column(db.String(100))
     mainpoint_tag = db.Column(db.String(100))
     # 发送时间
-    deliver_time = db.Column(db.Integer, nullable=False, default=datetime.now)
+    deliver_time = db.Column(db.DateTime, nullable=False, default=datetime.now)
 
 
 
