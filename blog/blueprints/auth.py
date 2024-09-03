@@ -1,9 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_mail import Message
 import random
-from flask_cors import CORS
-import sys
-import os
 from exts import mail, db
 from models import User
 

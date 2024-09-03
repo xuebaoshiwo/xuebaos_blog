@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import random
 import config
 from blueprints.auth import bp as auth_bp
-from blueprints.qa import bp as qa_bp
+from xuebaos_blog.blog.blueprints.blog import bp as qa_bp
 from exts import db, mail
 from flask_migrate import Migrate
 from models import User
