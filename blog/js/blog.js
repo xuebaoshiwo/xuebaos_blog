@@ -6,7 +6,7 @@ async function main(){    // 获取传递过来参数
     // 显示username
     let username_container = document.getElementById('username');
     username_container.innerHTML = username
-    await getBlogAndShow(1, 6)
+    getBlogAndShow(1, 6)
 
 
 
@@ -33,6 +33,7 @@ async function main(){    // 获取传递过来参数
                 let language_tags = data.language_tags
                 let mainpoint_tags = data.mainpoint_tags
                 let deliver_times = data.deliver_times
+                let cover_img_path = data.cover_img_path
                 alert(deliverer_ids[0])
             })
             .catch(err => {
@@ -41,10 +42,24 @@ async function main(){    // 获取传递过来参数
     }
 
     function add_blog(title, mainContent){
-        let blog_piece = document.createElement('span')
-        blog_piece.classList.add("blog-piece")
+        let blog_piece = document.createElement('span');
+        blog_piece.classList.add("blog-piece");
         // 添加hover特效
-        blog_piece.classList.add('hvr-grow-shadow')
+        blog_piece.classList.add('hvr-grow-shadow');
+        // 标题
+        let blog_title = document.createElement('span');
+        blog_title.classList.add('blog-title');
+        blog_title.innerHTML = title;
+        // blog-content部分
+        let blog_content = document.createElement('span');
+        blog_content.classList.add('blog-content');
+        // cover-text部分
+        let blog_cover_text = document.createElement('span');
+        blog_cover_text.classList.add('blog-cover-text');
+        // cover图片部分
+        let blog_cover_img = document.createElement('span');
+        blog_cover_img.classList.add('blog-cover-img');
+        // blog_cover_img.style.backgroundImage = 'url(' + 
         
     }
 

@@ -8,6 +8,8 @@ class User(db.Model):
     user_name = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
+    # 头像路径
+    avatar_path = db.Column(db.String(100), default=r'/static/userAvatar-img/user_image.jpg')
     join_time = db.Column(db.DateTime, nullable=False, default=datetime.now)
 
     # 设置外键
@@ -26,6 +28,8 @@ class Blog(db.Model):
     title = db.Column(db.String(100), nullable=False)
     # 正文内容
     main_content = db.Column(db.Text)
+    # 封面图片
+    cover_img_path = db.Column(db.String(100), default='/static/blogCover-img/e4dca241f6054f75b2b07ea211cce916.png')
     # tag部分
     subject_tag = db.Column(db.String(100))
     language_tag = db.Column(db.String(100))

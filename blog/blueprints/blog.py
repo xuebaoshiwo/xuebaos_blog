@@ -54,6 +54,8 @@ def get_blog():
         language_tags = []
         mainpoint_tags = []
         deliver_times = []
+        # 封面图片路径
+        cover_img_paths = []
 
         for blog in ret_blogs_list:
             deliverer_ids.append(blog.deliverer_id)
@@ -64,6 +66,7 @@ def get_blog():
             language_tags.append(blog.language_tag)
             mainpoint_tags.append(blog.mainpoint_tag)
             deliver_times.append(blog.deliver_time)
+            cover_img_paths.append(blog.cover_img_path)  # 封面图片路径
         
         # 包装result
         result['error'] = error
@@ -75,6 +78,7 @@ def get_blog():
         result['language_tags'] = language_tags
         result['mainpoint_tags'] = mainpoint_tags
         result['deliver_times'] = deliver_times
+        result['cover_img_path'] = cover_img_paths
         # state置为True
         state = True
         result['state'] = state
