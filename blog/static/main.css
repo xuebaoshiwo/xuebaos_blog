@@ -1,3 +1,10 @@
+:root{
+    --hover-color: rgb(226, 119, 137);
+    --sidebar-color: rgba(165, 158, 158, 0.3);
+    --blogcover-color: rgba(46, 43, 43, 0.6);
+}
+
+
 body {
     position: relative;
     display: flex;
@@ -8,7 +15,7 @@ body {
     font-size: larger;
     background: linear-gradient(60deg, rgb(33, 133, 94) 0%, rgb(226, 119, 137) 50%, rgb(97, 185, 236) 70%,  rgb(189, 75, 170) 90%);
     animation: gradient 30s ease infinite;
-    background-size: 200% 200%; /* 调整背景尺寸，使其更大 */
+    background-size: 230% 230%; /* 调整背景尺寸，使其更大 */
     /* overflow: hidden; */
 }
 
@@ -18,18 +25,98 @@ body {
     }
 
     25% {
-        background-position: 100% 15%;
+        background-position: 95% 15%;
     }
 
     50% {
-        background-position: 100% 100%;
+        background-position: 95% 95%;
     }
 
     75% {
-        background-position: 0 100%;
+        background-position: 0 95%;
     }
 
     100% {
         background-position: 0 15%;
     }
+}
+
+
+/* 分页表 */
+/* .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin-top: auto;
+    background-color: black;
+} */
+
+.pagination {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    left: 0;
+    top: 50%;
+    width: 2.5vw;
+    transform: translate(0, -50%);
+    background-color: var(--blogcover-color);
+    backdrop-filter: blur(10px);
+    border-top-right-radius: 2.5vw;
+    border-bottom-right-radius: 2.5vw;
+    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px 20px;
+    align-self: center;
+}
+
+.change-page-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+    color: white;
+    border-radius: 30px;
+    border: 3px solid var(--hover-color);
+    background-color: transparent;
+    transition: background-color 0.9s ease;
+    cursor: pointer;
+}
+
+.change-page-button:hover {
+    background-color: var(--hover-color);
+}
+
+.page_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 25px;
+    color: white;
+    border: 3px solid var(--hover-color);
+    transition: scale 0.9s ease;
+    cursor: pointer;
+}
+
+.mine-shadow-hover{
+    transition: scale 0.5s ease;
+    transition: box-shadow 0.5 ease;
+}
+.mine-shadow-hover:hover{
+    scale: 1.1;
+    box-shadow:0 30px 30px -30px rgba(0,0,0,0.7);
+}
+
+.page_button:hover{
+    scale: 1.3;
 }

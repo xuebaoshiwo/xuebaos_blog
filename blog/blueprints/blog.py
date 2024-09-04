@@ -30,6 +30,8 @@ def get_blog():
     try:
         blogs = Blog.query.order_by('deliver_time').all()
         max_length = len(blogs)
+        # 获得blogs总数
+        blogs_num = max_length
         # 如果下界大于max_length则直接返回
         if int(pieces_started_num) >=max_length:
             return jsonify({'state': False, 'error': 'out of index range!'})
@@ -79,6 +81,8 @@ def get_blog():
         result['mainpoint_tags'] = mainpoint_tags
         result['deliver_times'] = deliver_times
         result['cover_img_path'] = cover_img_paths
+        # blog总数
+        result['blogs_num'] = blogs_num
         # state置为True
         state = True
         result['state'] = state

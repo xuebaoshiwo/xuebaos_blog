@@ -34,7 +34,12 @@ async function main(){    // 获取传递过来参数
                 let mainpoint_tags = data.mainpoint_tags
                 let deliver_times = data.deliver_times
                 let cover_img_paths = data.cover_img_path
-                // alert(deliverer_ids[0])
+
+                // blogs总数
+                let blogs_num = data.blogs_num
+
+                // 计算得到pages总数
+                let pages_num = blogs / pieces_of_page;
 
                 let length = post_ids.length
                 // 添加到前端blog_container
@@ -43,9 +48,8 @@ async function main(){    // 获取传递过来参数
                     let mainContent = main_contents[i];
                     let cover_img_path = cover_img_paths[i];
                     let mainContentMaxLength = mainContent.length;
-                    let coverLength = mainContentMaxLength < 20 ? mainContentMaxLength : 20;
+                    let coverLength = mainContentMaxLength < 300 ? mainContentMaxLength : 300;
                     let coverMainContent = mainContent.slice(0, coverLength); 
-                    
                     add_blog(title, coverMainContent, cover_img_path);
                 }
             })
@@ -58,7 +62,7 @@ async function main(){    // 获取传递过来参数
         let blog_piece = document.createElement('span');
         blog_piece.classList.add("blog-piece");
         // 添加hover特效
-        blog_piece.classList.add('hvr-grow-shadow');
+        blog_piece.classList.add('mine-shadow-hover');
         // 标题
         let blog_title = document.createElement('span');
         blog_title.classList.add('blog-title');
@@ -73,7 +77,7 @@ async function main(){    // 获取传递过来参数
         // cover图片部分
         let blog_cover_img = document.createElement('span');
         blog_cover_img.classList.add('blog-cover-img');
-        blog_cover_img.style.backgroundImage = 'url(' + `'` + '../static/blogCover-img/e4dca241f6054f75b2b07ea211cce916.png' + `'` +')';
+        blog_cover_img.style.backgroundImage = 'url(' + `'` + cover_img_path + `'` +')';
         
         blog_content.appendChild(blog_cover_text);
         blog_content.appendChild(blog_cover_img);
@@ -86,9 +90,12 @@ async function main(){    // 获取传递过来参数
 
         // 加入到blog_container 
         blog_container.appendChild(blog_piece);
+    }
 
-
-        
+    // 加入分页器
+    function addPagenation(pages_num){
+        let pagenation = document.getElementById('blog-pagenation');
+        pagenation.innerHTML = ''
     }
 
 }
@@ -96,4 +103,3 @@ async function main(){    // 获取传递过来参数
 
 
 main()
-
