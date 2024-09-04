@@ -23,7 +23,7 @@ async function main(){    // 获取传递过来参数
             body: JSON.stringify(pak)
         }).then(response => response.json())
             .then(data => {
-                alert(data.state)
+                // alert(data.state)
                 // 解析后端json
                 let deliverer_ids = data.deliverer_ids
                 let post_ids = data.post_ids
@@ -33,15 +33,28 @@ async function main(){    // 获取传递过来参数
                 let language_tags = data.language_tags
                 let mainpoint_tags = data.mainpoint_tags
                 let deliver_times = data.deliver_times
-                let cover_img_path = data.cover_img_path
-                alert(deliverer_ids[0])
+                let cover_img_paths = data.cover_img_path
+                // alert(deliverer_ids[0])
+
+                let length = post_ids.length
+                // 添加到前端blog_container
+                for (let i = 0; i < length; i++){
+                    let title = titles[i];
+                    let mainContent = main_contents[i];
+                    let cover_img_path = cover_img_paths[i];
+                    let mainContentMaxLength = mainContent.length;
+                    let coverLength = mainContentMaxLength < 20 ? mainContentMaxLength : 20;
+                    let coverMainContent = mainContent.slice(0, coverLength); 
+                    
+                    add_blog(title, coverMainContent, cover_img_path);
+                }
             })
             .catch(err => {
                 alert(err)
             })
     }
 
-    function add_blog(title, mainContent){
+    function add_blog(title, coverMainContent, cover_img_path){
         let blog_piece = document.createElement('span');
         blog_piece.classList.add("blog-piece");
         // 添加hover特效
@@ -56,10 +69,25 @@ async function main(){    // 获取传递过来参数
         // cover-text部分
         let blog_cover_text = document.createElement('span');
         blog_cover_text.classList.add('blog-cover-text');
+        blog_cover_text.innerHTML = coverMainContent;
         // cover图片部分
         let blog_cover_img = document.createElement('span');
         blog_cover_img.classList.add('blog-cover-img');
-        // blog_cover_img.style.backgroundImage = 'url(' + 
+        blog_cover_img.style.backgroundImage = 'url(' + `'` + '../static/blogCover-img/e4dca241f6054f75b2b07ea211cce916.png' + `'` +')';
+        
+        blog_content.appendChild(blog_cover_text);
+        blog_content.appendChild(blog_cover_img);
+
+        blog_piece.appendChild(blog_title);
+        blog_piece.append(blog_content);
+
+        // 获得blog_container
+        let blog_container = document.getElementById('blog-container-1');
+
+        // 加入到blog_container 
+        blog_container.appendChild(blog_piece);
+
+
         
     }
 
