@@ -71,6 +71,7 @@ body {
     z-index: 1000;
     padding: 10px 20px;
     align-self: center;
+    overflow: hidden;
 }
 
 .change-page-button {
@@ -107,7 +108,18 @@ body {
     transition: scale 0.9s ease;
     cursor: pointer;
 }
+.page_button_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40px;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
+
+/* 阴影的hover特效 */
 .mine-shadow-hover{
     transition: scale 0.5s ease;
     transition: box-shadow 0.5 ease;
